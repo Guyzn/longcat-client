@@ -54,7 +54,7 @@ def call(prompt, system="You are a helpful assistant.", max_tokens=1024,
          temperature=0.7, timeout=120):
     cfg = load_cfg()
     if not cfg["api_key"]:
-        raise RuntimeError("未找到 LongCat API 密钥（请配置 ~/.longcat_config 或 LONGCAT_API_KEY）")
+        raise RuntimeError("未找到 LongCat API 密钥（请配置 " + CONFIG_PATH + " 或 LONGCAT_API_KEY）")
     # 注意限制：纯文本、不传 thinking、不传图片
     payload = {
         "model": cfg["model"],
